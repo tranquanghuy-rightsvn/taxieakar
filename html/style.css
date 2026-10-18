@@ -4650,3 +4650,38 @@ main > section {
 .not-found .hero-cta {
   display: inline-flex;
 }
+
+/* Quick booking form on service pages (below page banner) */
+.service-booking {
+  position: relative;
+  z-index: 5;
+  display: flow-root;
+  background: #f5f8fd;
+  padding-bottom: 0.5rem;
+}
+
+.service-booking .quick-booking {
+  margin: -28px auto 0;
+}
+
+.page-banner:has(+ .service-booking) {
+  padding-bottom: 3.5rem;
+}
+
+.service-booking + .intro-section {
+  padding-top: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .service-booking .quick-booking {
+    margin: 1.25rem auto 0;
+  }
+
+  .page-banner:has(+ .service-booking) {
+    padding-bottom: 2.5rem;
+  }
+
+  .service-booking + .intro-section {
+    padding-top: 2.5rem;
+  }
+}
