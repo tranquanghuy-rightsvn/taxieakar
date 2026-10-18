@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hợp Đồng Du Lịch Trọn Gói - Xe Taxi Eakar</title>
+  <meta name="description" content="Dịch vụ xe hợp đồng du lịch, công tác của Xe Taxi Eakar: xe 4-7 chỗ, lịch trình linh hoạt theo ngày hoặc theo chuyến, báo giá theo lộ trình. Hotline 0368 395 396.">
+  <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img
+          src="/assets/icons/logo-xetaxieakar.png"
+          alt="Xe Taxi Eakar"
+          class="logo-icon"
+        />
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <button type="button" class="nav-close" aria-label="Đóng menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+        <ul>
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/gia-dich-vu/">Giá dịch vụ</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+              Dịch vụ
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </a>
+            <div class="nav-dropdown">
+              <a href="/di-noi-thanh/">Đi nội thành</a>
+              <a href="/di-cac-tinh/">Đi các tỉnh</a>
+              <a href="/dua-don-san-bay/">Đưa đón sân bay</a>
+              <a href="/hop-dong-du-lich-tron-goi/" class="active">Hợp đồng du lịch trọn gói</a>
+            </div>
+          </li>
+          <li><a href="/gioi-thieu/">Giới thiệu</a></li>
+          <li><a href="/lien-he/">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <a href="tel:0368395396" class="contact-btn">
+        <span class="contact-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.01z" />
+          </svg>
+        </span>
+        <span class="contact-text">
+          <strong>0368 395 396</strong>
+          <small>Hỗ trợ 24/7 - Đặt xe nhanh</small>
+        </span>
+      </a>
+
+      <a href="tel:0368395396" class="contact-btn-mobile" aria-label="Gọi 0368 395 396">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.01z" />
+        </svg>
+        <span class="contact-btn-mobile-text">0368 395 396</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Mở menu" aria-controls="main-nav" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+          <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT — Dịch vụ: Hợp đồng du lịch trọn gói
+       ========================================== -->
+  <main>
+
+    <section class="page-banner">
+      <div class="page-banner-inner">
+        <h1>HỢP ĐỒNG DU LỊCH TRỌN GÓI</h1>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+          <a href="/">Trang chủ</a>
+          <span>/</span>
+          <span>Dịch vụ</span>
+          <span>/</span>
+          <span>Hợp đồng du lịch trọn gói</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <div class="intro-inner">
+        <div class="intro-grid">
+          <div class="intro-text">
+            <div class="section-heading">
+              <h2 class="section-title">XE HỢP ĐỒNG DU LỊCH &amp; CÔNG TÁC</h2>
+              <span class="section-title-bar"></span>
+            </div>
+
+            <p>Xe Taxi EAKAR cung cấp dịch vụ xe hợp đồng theo ngày hoặc theo chuyến bằng xe 4-7 chỗ, phù hợp cho các chuyến du lịch, công tác, sự kiện hoặc đưa đón đoàn khách tại Ea Kar, Đắk Lắk và các khu vực lân cận.</p>
+
+            <p>Lịch trình được sắp xếp linh hoạt theo yêu cầu, tài xế am hiểu địa bàn và các điểm du lịch nổi tiếng trong khu vực.</p>
+
+            <div class="intro-services">
+              <span class="intro-service-chip">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Lịch trình linh hoạt theo yêu cầu
+              </span>
+              <span class="intro-service-chip">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Phù hợp tour, công tác, đưa đón đoàn
+              </span>
+              <span class="intro-service-chip">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Tài xế am hiểu địa bàn Ea Kar - Đắk Lắk
+              </span>
+              <span class="intro-service-chip">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Báo giá rõ ràng theo lộ trình
+              </span>
+            </div>
+
+            <div class="intro-cta-row">
+              <a href="tel:0368395396" class="hero-cta">
+                Liên hệ báo giá
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <span class="intro-cta-note">
+                <strong>0368 395 396</strong>
+                <span>Hotline hỗ trợ 24/7</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="intro-media">
+            <div class="intro-media-frame">
+              <img src="/assets/images/pagea-hero-banner.jpg" alt="Taxi Eakar - Xe hợp đồng du lịch và công tác">
+            </div>
+            <div class="intro-badge">
+              <span class="intro-badge-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" />
+                </svg>
+              </span>
+              <span class="intro-badge-text">
+                <strong>Linh hoạt</strong>
+                <span>Theo đúng yêu cầu của bạn</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div class="about-inner">
+        <div class="section-heading why-us-heading">
+          <h2 class="section-title">QUY TRÌNH THUÊ XE HỢP ĐỒNG</h2>
+          <span class="section-title-bar"></span>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <span class="process-step-num">1</span>
+            <h3>Liên hệ tư vấn</h3>
+            <p>Gọi hotline hoặc để lại thông tin lộ trình cần di chuyển.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-num">2</span>
+            <h3>Trao đổi lịch trình</h3>
+            <p>Thống nhất lịch trình, thời gian và loại xe phù hợp.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-num">3</span>
+            <h3>Nhận báo giá</h3>
+            <p>Nhận báo giá cụ thể theo lộ trình và thời gian sử dụng.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-num">4</span>
+            <h3>Khởi hành theo lịch</h3>
+            <p>Xe và tài xế sẵn sàng theo đúng lịch trình đã thống nhất.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="price-cards">
+      <div class="about-inner">
+        <div class="section-heading why-us-heading">
+          <h2 class="section-title">THÔNG TIN DỊCH VỤ</h2>
+          <span class="section-title-bar"></span>
+        </div>
+
+        <div class="price-cards-grid single">
+          <div class="price-card">
+            <div class="price-card-head">
+              <span class="price-card-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </span>
+              <div>
+                <h3>Xe Hợp Đồng Du Lịch</h3>
+                <span class="price-vehicle">Xe 4 - 7 chỗ</span>
+              </div>
+            </div>
+
+            <ul class="price-notes">
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Đưa đón theo lịch trình linh hoạt, trọn gói theo ngày hoặc theo chuyến
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Phù hợp du lịch, công tác, sự kiện, đưa đón đoàn
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Báo giá cụ thể theo lộ trình và thời gian sử dụng
+              </li>
+            </ul>
+
+            <a href="tel:0368395396" class="price-card-cta">
+              Liên hệ báo giá
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="commitment">
+      <div class="commitment-inner">
+        <h2>Cam Kết Của Chúng Tôi</h2>
+        <span class="commitment-bar"></span>
+        <ul class="commitment-list">
+          <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg> Có mặt nhanh khi khách cần.</li>
+          <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg> Phục vụ tận tâm, chuyên nghiệp.</li>
+          <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg> Giá cả cạnh tranh, hợp lý.</li>
+          <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg> Xe sạch sẽ, đời mới.</li>
+          <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg> Hỗ trợ khách hàng 24/7.</li>
+          <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg> Đặt xe đơn giản qua Hotline.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tagline-banner">
+      <p>XE SẠCH – TÀI XẾ CHUYÊN NGHIỆP – GIÁ HỢP LÝ</p>
+    </section>
+
+    <section class="contact-page">
+      <div class="contact-inner">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="section-heading">
+              <h2 class="section-title">ĐĂNG KÝ NHẬN TƯ VẤN</h2>
+              <span class="section-title-bar"></span>
+            </div>
+
+            <p class="contact-desc">Để lại thông tin, Xe Taxi EAKAR sẽ liên hệ tư vấn và báo giá chi tiết theo lộ trình.</p>
+
+            <div class="contact-detail-list">
+              <div class="contact-detail-item">
+                <span class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.01z" />
+                  </svg>
+                </span>
+                <span class="contact-detail-text">
+                  <strong>0368 395 396</strong>
+                  <span>Hotline đặt xe</span>
+                </span>
+              </div>
+
+              <div class="contact-detail-item">
+                <span class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2.24V6l8 5.99L20 6v-.01L12 12 4 6.24zM4 8.24V18h16V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24z" />
+                  </svg>
+                </span>
+                <span class="contact-detail-text">
+                  <strong>info@xetaxieakar.com</strong>
+                  <span>Email liên hệ</span>
+                </span>
+              </div>
+
+              <div class="contact-detail-item">
+                <span class="contact-detail-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" />
+                  </svg>
+                </span>
+                <span class="contact-detail-text">
+                  <strong>Ninh Thanh 1, Ea Kmút, Ea Kar, Đắk Lắk</strong>
+                  <span>Địa chỉ</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap">
+            <div class="section-heading">
+              <h2 class="section-title contact-form-title">Đăng ký nhận tư vấn</h2>
+            </div>
+
+            <form class="contact-form" id="dangkyForm" novalidate>
+              <div class="form-group">
+                <label for="dk-name">Họ và tên</label>
+                <input type="text" id="dk-name" name="full_name" placeholder="Họ và tên">
+              </div>
+
+              <div class="form-group">
+                <label for="dk-phone">Số điện thoại</label>
+                <input type="tel" id="dk-phone" name="phone_number" placeholder="Số điện thoại">
+              </div>
+
+              <div class="form-group">
+                <label for="dk-address">Địa chỉ</label>
+                <input type="text" id="dk-address" name="address" placeholder="Địa chỉ">
+              </div>
+
+              <button type="submit" class="contact-submit">
+                NHẬN TƯ VẤN
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <a href="/" class="footer-logo">
+          <img src="/assets/icons/logo-xetaxieakar.png" alt="Xe Taxi Eakar" class="footer-logo-icon">
+        </a>
+
+        <div class="footer-info">
+          <div class="footer-info-item">
+            <span class="footer-info-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.01z" />
+              </svg>
+            </span>
+            <span class="footer-info-text">
+              <strong>0368 395 396</strong>
+              <span>Hỗ trợ 24/7</span>
+            </span>
+          </div>
+
+          <div class="footer-info-item">
+            <span class="footer-info-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" />
+              </svg>
+            </span>
+            <span class="footer-info-text">
+              <strong>Ninh Thanh 1, Ea Kmút, Ea Kar, Đắk Lắk</strong>
+              <span>Địa chỉ</span>
+            </span>
+          </div>
+
+          <div class="footer-info-item">
+            <span class="footer-info-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2.24V6l8 5.99L20 6v-.01L12 12 4 6.24zM4 8.24V18h16V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24z" />
+              </svg>
+            </span>
+            <span class="footer-info-text">
+              <strong>info@xetaxieakar.com</strong>
+              <span>Liên hệ hợp tác</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="footer-tagline">
+          <span class="footer-tagline-line1">An toàn</span>
+          <span class="footer-tagline-line2">Trên mọi nẻo đường!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span class="footer-copy">Copyright © 2025 TAXI EAKAR 24H</span>
+        <nav class="footer-nav">
+          <a href="/">Trang chủ</a>
+          <a href="/gioi-thieu/">Giới thiệu</a>
+          <a href="/dich-vu/">Dịch vụ</a>
+          <a href="/bao-mat/">Bảo mật</a>
+          <a href="/gia-dich-vu/">Bảng giá</a>
+          <a href="#">Tin tức</a>
+          <a href="/lien-he/">Liên hệ</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <div class="contact-float">
+    <a href="tel:0368395396" class="contact-float-btn contact-float-phone" aria-label="Gọi hotline 0368 395 396">
+      <span class="contact-float-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.25 1.01z" />
+        </svg>
+      </span>
+      <span class="contact-float-label">Đặt xe ngay</span>
+    </a>
+  </div>
+
+  <script src="/main.js" defer></script>
+</body>
+</html>

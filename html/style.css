@@ -533,6 +533,20 @@ body {
   flex-wrap: wrap;
 }
 
+@media (min-width: 769px) {
+  .hero-features {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+  }
+}
+
+@media (min-width: 1274px) {
+  .hero-features {
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+
 .hero-feature {
   display: flex;
   align-items: flex-start;
@@ -731,6 +745,50 @@ body {
 
 .qb-datetime-input {
   cursor: pointer;
+}
+
+/* Place autocomplete (Điểm đón / Điểm đến) */
+.qb-autocomplete-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+.qb-autocomplete-item {
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #444;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.qb-autocomplete-item strong {
+  color: var(--color-dark);
+}
+
+.qb-autocomplete-item:hover,
+.qb-autocomplete-item.is-active {
+  background: rgba(7, 69, 190, 0.08);
+}
+
+.qb-autocomplete-msg {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
 }
 
 .qb-field.qb-field-time {
@@ -4366,6 +4424,128 @@ main > section {
 }
 
 /* Price note callout (Giá dịch vụ page) */
+/* Tour pricing (Giá đi du lịch) */
+.tour-pricing {
+  padding: 0 1.5rem 4.5rem;
+  background: #f5f8fd;
+}
+
+.tour-pricing-intro {
+  max-width: 720px;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.tour-pricing .pricing-table-wrap {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(7, 69, 190, 0.06);
+}
+
+.tour-pricing-table tbody td:first-child {
+  white-space: normal;
+  min-width: 260px;
+}
+
+.tour-name {
+  display: block;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.tour-desc {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.tour-pricing-table tbody td.tour-distance {
+  color: #555;
+  font-weight: 600;
+}
+
+.tour-pricing-notes {
+  margin: 1.25rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+.tour-pricing-notes a {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .tour-pricing {
+    padding: 0 1rem 3.5rem;
+  }
+
+  .tour-pricing .pricing-table-wrap {
+    border: none;
+    background: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .tour-pricing-table {
+    min-width: 0;
+  }
+
+  .tour-pricing-table thead {
+    display: none;
+  }
+
+  .tour-pricing-table tbody tr {
+    display: block;
+    margin-bottom: 0.9rem;
+    padding: 1rem 1.1rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(7, 69, 190, 0.06);
+  }
+
+  .tour-pricing-table tbody tr:nth-child(even) {
+    background: #fff;
+  }
+
+  .tour-pricing-table tbody td,
+  .tour-pricing-table tbody tr:last-child td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px dashed #eee;
+    white-space: normal;
+  }
+
+  .tour-pricing-table tbody td:first-child,
+  .tour-pricing-table tbody tr:last-child td:first-child {
+    display: block;
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 0.6rem;
+  }
+
+  .tour-pricing-table tbody td:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .tour-pricing-table tbody td[data-label]::before {
+    content: attr(data-label);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #777;
+  }
+}
+
 .price-note {
   background: #fff;
   padding-bottom: 2rem;
