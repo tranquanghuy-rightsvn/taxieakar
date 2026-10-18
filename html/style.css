@@ -591,47 +591,6 @@ body {
   background: #06379a;
 }
 
-.hero-caption {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.1rem;
-  background: #fff;
-  border-radius: 50px;
-  padding: 0.4rem 1rem 0.4rem 0.4rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero-caption:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
-}
-
-.hero-caption-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.hero-caption-text {
-  font-size: clamp(0.68rem, 1vw, 0.8rem);
-  font-weight: 600;
-  color: var(--color-dark);
-}
-
-.hero-caption-text strong {
-  font-weight: 800;
-  color: var(--color-primary);
-}
-
 .hero-car {
   position: absolute;
   right: 23%;
@@ -1060,7 +1019,7 @@ body {
 
   .quick-booking {
     width: 92%;
-    margin: -110% auto 0;
+    margin: 1.25rem auto 0;
     flex-wrap: wrap;
     gap: 1rem;
     padding: 1.25rem;
@@ -2039,6 +1998,7 @@ body {
 .page-banner-inner {
   max-width: 1300px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .page-banner h1 {
@@ -2052,6 +2012,7 @@ body {
 .breadcrumb {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-size: 0.85rem;
 }

@@ -1,6 +1,0 @@
-{
-  "cleanUrls": true,
-  "redirects": [
-    { "source": "/dich-vu-bao-mat", "destination": "/dich-vu", "permanent": true }
-  ]
-}
