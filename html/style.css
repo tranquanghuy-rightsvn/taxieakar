@@ -3864,6 +3864,22 @@ body {
   justify-content: center;
 }
 
+.price-notes .price-card-detail-link {
+  margin-left: 0;
+}
+
+.price-cards-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1240px;
+}
+
+@media (max-width: 1100px) {
+  .price-cards-grid.three {
+    grid-template-columns: minmax(0, 560px);
+    justify-content: center;
+  }
+}
+
 .price-tiers {
   display: flex;
   flex-direction: column;
