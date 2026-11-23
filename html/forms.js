@@ -1,6 +1,6 @@
 /**
  * Gửi form công khai lên backend CMS:
- *   - Đặt xe: widget "ĐẶT XE NHANH" (#quickBookingForm) chỉ có điểm đón / điểm đến / thời gian.
+ *   - Đặt xe: widget "ĐẶT XE SỚM" (#quickBookingForm) chỉ có điểm đón / điểm đến / thời gian.
  *     Bấm "ĐẶT XE NGAY" -> mở POPUP hỏi Họ tên + Số điện thoại -> bấm xác nhận mới gửi đơn
  *     hoàn chỉnh (GAS.md mục VI).
  *   - Đăng ký nhận tư vấn: form #dangkyForm (Họ tên, SĐT, Địa chỉ) - có ở nhiều trang.

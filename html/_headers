@@ -12,3 +12,7 @@
 /admin
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
   Referrer-Policy: no-referrer
+
+# llms.txt: tiếng Việt có dấu -> khai rõ UTF-8 để bot/trình duyệt không đọc sai bảng mã.
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
