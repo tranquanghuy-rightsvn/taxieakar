@@ -61,7 +61,7 @@ const dangkyForm = document.getElementById('dangkyForm');
 if (dangkyForm) {
   dangkyForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Cảm ơn bạn đã để lại thông tin. Vui lòng gọi hotline 0368 395 396 để được hỗ trợ đặt xe nhanh nhất.');
+    alert('Cảm ơn bạn đã để lại thông tin. Vui lòng gọi hotline 0368.395.396 để được hỗ trợ đặt xe nhanh nhất.');
     dangkyForm.reset();
   });
 }
@@ -71,7 +71,7 @@ const quickBookingForm = document.getElementById('quickBookingForm');
 if (quickBookingForm) {
   quickBookingForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Cảm ơn bạn đã đặt xe. Vui lòng gọi hotline 0368 395 396 để được hỗ trợ đặt xe nhanh nhất.');
+    alert('Cảm ơn bạn đã đặt xe. Vui lòng gọi hotline 0368.395.396 để được hỗ trợ đặt xe nhanh nhất.');
     quickBookingForm.reset();
   });
 }
