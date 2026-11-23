@@ -3213,8 +3213,7 @@ body {
    Desktop: 2 nút tròn xếp dọc, dính góc phải dưới màn hình.
    <= 768px: gập thành thanh full-width dính ĐÁY màn hình (ngón cái dễ với tới),
    kèm padding-bottom cho <body> để thanh không che mất cuối footer.
-   Logo Zalo dùng ẢNH /assets/images/zalo.png cho đúng nhận diện Zalo (giống nút
-   bên dự án web100) thay vì vẽ lại bong bóng chat bằng CSS.
+   Logo Zalo là SVG inline (bong bóng chat + chữ "Zalo") giống nút bên dự án tretrucvn.
    z-index 900 là CỐ Ý thấp hơn menu mobile (drawer 1001 / overlay 1000) và popup
    form (9999) — mở menu hay popup thì nút nổi không được đè lên trên.
    ========================================================================== */
@@ -3293,7 +3292,13 @@ body {
 }
 
 .contact-float-zalo .contact-float-icon {
-  background: #fff url("assets/images/zalo.png") center / cover no-repeat;
+  background: #0068ff;
+}
+
+/* Icon Zalo (bong bóng trắng + chữ "Zalo", lấy từ dự án tretrucvn) phủ gần kín nút. */
+.contact-float-zalo .contact-float-icon svg {
+  width: 46px;
+  height: 46px;
 }
 
 /* Chữ chỉ xuất hiện khi 2 nút gập thành thanh đáy ở mobile. */
@@ -3345,6 +3350,11 @@ body {
   .contact-float-icon svg {
     width: 18px;
     height: 18px;
+  }
+
+  .contact-float-zalo .contact-float-icon svg {
+    width: 26px;
+    height: 26px;
   }
 
   /* Vòng sóng giữ nguyên ở thanh đáy, chỉ thu nhỏ cho vừa và đổi sang viền
