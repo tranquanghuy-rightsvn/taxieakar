@@ -4068,15 +4068,28 @@ body {
   position: relative;
   width: 100%;
   height: 640px;
-  background-image: url("assets/images/pagea-hero-banner.jpg");
+  /* 3 bản WebP theo khổ màn hình: desktop 1440x640, tablet 768x450, mobile 390x450 (cover). */
+  background-image: url("assets/images/pagea-hero-banner-1536.webp");
   background-size: cover;
   background-position: left center;
   overflow: hidden;
 }
 
+@media (max-width: 992px) {
+  .eakar-hero {
+    background-image: url("assets/images/pagea-hero-banner-1280.webp");
+  }
+}
+
 @media (max-width: 768px) {
   .eakar-hero {
     height: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  .eakar-hero {
+    background-image: url("assets/images/pagea-hero-banner-1000.webp");
   }
 }
 
