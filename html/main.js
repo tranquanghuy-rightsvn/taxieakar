@@ -56,25 +56,7 @@ if (dropdownToggle) {
   });
 }
 
-// Registration form: no backend on this static page, just confirm to the user
-const dangkyForm = document.getElementById('dangkyForm');
-if (dangkyForm) {
-  dangkyForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Cảm ơn bạn đã để lại thông tin. Vui lòng gọi hotline 0856 713 714 để được hỗ trợ đặt xe nhanh nhất.');
-    dangkyForm.reset();
-  });
-}
-
-// Quick booking bar: no backend on this static page, just confirm to the user
-const quickBookingForm = document.getElementById('quickBookingForm');
-if (quickBookingForm) {
-  quickBookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Cảm ơn bạn đã đặt xe. Vui lòng gọi hotline 0856 713 714 để được hỗ trợ đặt xe nhanh nhất.');
-    quickBookingForm.reset();
-  });
-}
+// Form Đăng ký tư vấn + widget Đặt xe nhanh: xử lý trong /forms.js (gửi lên backend CMS).
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a => {

@@ -16,3 +16,6 @@ Thumbs.db
 
 .claude
 .vscode
+# Backend CMS (Google Apps Script) - day bang clasp, KHONG commit (xem GAS.md)
+gas/
+__pycache__/

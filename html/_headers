@@ -1,0 +1,14 @@
+# Cloudflare đọc file này để gắn header cho từng đường dẫn.
+
+# Trang quản trị: chặn lập chỉ mục ở tầng HTTP (mạnh hơn thẻ meta vì không phụ thuộc bot có
+# đọc HTML hay không, và phủ luôn mọi file con).
+# ⚠️ CỐ Ý KHÔNG khai Disallow trong robots.txt: robots.txt là file công khai, khai ở đó chính
+# là tự quảng cáo đường dẫn quản trị cho cả thiên hạ. Hơn nữa chặn crawl thì Google không đọc
+# được thẻ noindex -> phản tác dụng.
+/admin/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Referrer-Policy: no-referrer
+
+/admin
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Referrer-Policy: no-referrer
