@@ -11,6 +11,7 @@ on:
     branches: [master]
     paths:
       - 'data/posts.json'
+      - 'content/**'
       - 'templates/**'
       - 'scripts/build.py'
   workflow_dispatch: {}

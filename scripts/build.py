@@ -9,7 +9,12 @@ Sinh ra (CI chạy tự động mỗi khi trang quản trị Lưu/Xoá bài - .g
   html/tin-tuc/danh-muc/<slug>/index.html   trang chuyên mục (chỉ chuyên mục CÓ bài)
   html/sitemap.xml                          giữ nguyên mục của trang tĩnh, sinh lại mục /tin-tuc/
 
-Mọi file trong html/tin-tuc/ là SẢN PHẨM BUILD - không sửa tay (sửa templates/ hoặc data/).
+Bài Smart content (thân bài thiết kế bằng HTML/CSS, không qua trình soạn thảo của trang quản trị):
+  content/tin-tuc/<slug>.html = khối <!-- smart-content ... --> (title, description, cover, cover_alt,
+  category, date, updated) + thân bài. Gộp chung danh sách với bài thường; trùng slug thì Smart
+  content thắng. CSS/JS khối (html/assets/css|js/) chỉ nạp vào trang bài có dùng khối đó.
+
+Mọi file trong html/tin-tuc/ là SẢN PHẨM BUILD - không sửa tay (sửa templates/, data/ hoặc content/).
 Build phải idempotent: chạy 2 lần liên tiếp ra y hệt (CI kiểm tra).
 """
 import html as html_mod
@@ -22,6 +27,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 HTML = os.path.join(ROOT, "html")
 DATA = os.path.join(ROOT, "data")
 TEMPLATES = os.path.join(ROOT, "templates")
+CONTENT = os.path.join(ROOT, "content", "tin-tuc")
 OUT = os.path.join(HTML, "tin-tuc")
 
 SITE = "https://taxieakar.com.vn"
@@ -50,6 +56,14 @@ CATEGORY_SLUGS = {
 }
 
 BLOG_IMAGE_PUBLIC = "/assets/images/blog/"
+
+# (mẫu class trong thân bài, CSS, JS) - khối nào có trong bài thì mới nạp file của khối đó.
+BLOCK_ASSETS = [
+    (r'class="[^"]*\btv-', ["/assets/css/blocks.css"], []),
+    (r'class="[^"]*\btv-process', ["/assets/css/process.css"], ["/assets/js/blocks.js"]),
+    (r'class="[^"]*\btv-(gallery|video|plan|proof)', [], ["/assets/js/media.js"]),
+]
+SMART_FIELDS = ("title", "description", "cover", "cover_alt", "category", "date", "updated")
 
 
 def esc(s):
@@ -95,8 +109,36 @@ def category_url(cat):
     return "/tin-tuc/danh-muc/%s/" % CATEGORY_SLUGS[cat]
 
 
+def load_smart():
+    """Đọc content/tin-tuc/*.html -> {slug: bài}. Khối thông tin là các dòng "khoá: giá trị"."""
+    out = {}
+    if not os.path.isdir(CONTENT):
+        return out
+    for name in sorted(os.listdir(CONTENT)):
+        if not name.endswith(".html"):
+            continue
+        with open(os.path.join(CONTENT, name), encoding="utf-8") as fh:
+            raw = fh.read()
+        m = re.match(r"\s*<!--\s*smart-content\s*\n(.*?)-->\n?", raw, re.S)
+        if not m:
+            raise SystemExit("content/tin-tuc/%s thiếu khối <!-- smart-content ... --> ở đầu file" % name)
+        post = {"slug": name[:-5], "smart": True, "content_html": raw[m.end():].rstrip("\n")}
+        for line in m.group(1).splitlines():
+            key, sep, val = line.partition(":")
+            if sep and key.strip() in SMART_FIELDS:
+                post[key.strip()] = val.strip()
+        if not post.get("title"):
+            raise SystemExit("content/tin-tuc/%s thiếu title" % name)
+        if post.get("updated"):
+            post["updated_at"] = post["updated"]
+        out[post["slug"]] = post
+    return out
+
+
 def all_posts():
-    posts = [dict(p) for p in load_json("posts.json", [])]
+    smart = load_smart()
+    posts = [dict(p) for p in load_json("posts.json", []) if p["slug"] not in smart]
+    posts += list(smart.values())
     # Mới nhất trước; cùng ngày thì theo slug để thứ tự ổn định giữa các lần build.
     posts.sort(key=lambda p: (str(p.get("date", "")), p["slug"]), reverse=True)
     return posts
@@ -124,7 +166,7 @@ def breadcrumb_ld(url, items):
     return {"@type": "BreadcrumbList", "@id": SITE + url + "#breadcrumb", "itemListElement": elements}
 
 
-def render_head(title, description, url, image, graph, og_type="website", index=True):
+def render_head(title, description, url, image, graph, og_type="website", index=True, extra_css=()):
     full = SITE + url
     robots = "index, follow, max-image-preview:large" if index else "noindex, follow"
     lines = [
@@ -154,6 +196,7 @@ def render_head(title, description, url, image, graph, og_type="website", index=
         '  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">',
         '  <link rel="stylesheet" href="/style.css">',
     ]
+    lines += ['  <link rel="stylesheet" href="%s">' % esc(c) for c in extra_css]
     return "\n".join(lines)
 
 
@@ -323,7 +366,7 @@ def build_categories(layout, posts):
 
 def build_posts(layout, posts):
     for post in posts:
-        detail = load_json(os.path.join("blog", post["slug"] + ".json"), None)
+        detail = post if post.get("smart") else load_json(os.path.join("blog", post["slug"] + ".json"), None)
         if detail is None:
             raise SystemExit(
                 "Thiếu data/blog/%s.json (có trong danh sách nhưng không có nội dung) - "
@@ -354,7 +397,15 @@ def build_posts(layout, posts):
         if cat:
             article["articleSection"] = cat
         graph = [article, breadcrumb_ld(url, crumbs_ld)]
-        head = render_head(seo_title, desc, url, image, graph, og_type="article")
+        body_html = detail.get("content_html", "")
+        css, js = [], []
+        if post.get("smart"):
+            for pattern, c, j in BLOCK_ASSETS:
+                if re.search(pattern, body_html):
+                    css += [x for x in c if x not in css]
+                    js += [x for x in j if x not in js]
+        head = render_head(seo_title, desc, url, image, graph, og_type="article", extra_css=css)
+        content_cls = "news-article-content post-detail-body" if post.get("smart") else "news-article-content"
 
         meta = '<span class="news-card-date">%s</span>' % esc(date_vn(detail.get("date")))
         if cat in CATEGORY_SLUGS:
@@ -367,8 +418,8 @@ def build_posts(layout, posts):
             '          <article class="news-article">\n'
             '            <div class="news-card-meta">%s</div>\n'
             '            <img class="news-article-cover" src="%s" alt="%s">\n'
-            '            <div class="news-article-content">\n'
-            # content_html là HTML do trình soạn thảo sinh -> KHÔNG escape.
+            '            <div class="%s">\n'
+            # content_html là HTML do trình soạn thảo / file Smart content -> KHÔNG escape.
             "%s\n"
             "            </div>\n"
             "          </article>\n\n"
@@ -377,11 +428,15 @@ def build_posts(layout, posts):
             "      </div>\n"
             "    </section>"
             % (render_banner(title, crumbs), meta, esc(cover_url(detail)),
-               esc(detail.get("cover_alt") or title), detail.get("content_html", ""),
+               esc(detail.get("cover_alt") or title), content_cls, body_html,
                render_sidebar(posts, active_cat=cat, current_slug=post["slug"]))
         )
-        write(os.path.join(OUT, post["slug"], "index.html"),
-              layout.replace("{{HEAD}}", head).replace("{{MAIN}}", main))
+        page = layout.replace("{{HEAD}}", head).replace("{{MAIN}}", main)
+        if js:
+            tag = '<script src="/main.js" defer></script>'
+            assert page.count(tag) == 1, "không tìm thấy thẻ main.js trong templates/layout.html"
+            page = page.replace(tag, tag + "".join('\n  <script src="%s" defer></script>' % esc(j) for j in js))
+        write(os.path.join(OUT, post["slug"], "index.html"), page)
 
 
 def prune_orphans(posts, built_categories):

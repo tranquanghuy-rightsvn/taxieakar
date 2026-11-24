@@ -50,4 +50,19 @@
     <lastmod>2026-10-18</lastmod>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://taxieakar.com.vn/tin-tuc/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taxieakar.com.vn/tin-tuc/danh-muc/kinh-nghiem-di-lai/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://taxieakar.com.vn/tin-tuc/taxi-ea-kar-di-san-bay-buon-ma-thuot/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>

@@ -1,0 +1,72 @@
+/* Khối quy trình trong thân bài (tretruc.com.vn): thanh tóm tắt 5 bước + timeline dọc.
+   Chỉ CSS, không cần JS. Markup: .tv-process-wrap > .tv-process-map + ol.tv-process > li.tv-step */
+.tv-process-wrap{margin:8px 0 36px}
+
+/* Thanh tóm tắt: 5 icon nối bằng 1 đường */
+.tv-process-map{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:22px 18px 18px;margin-bottom:26px;border-radius:20px;background:linear-gradient(135deg,var(--color-primary-dark),var(--color-primary));color:#fff;box-shadow:0 16px 36px rgba(6,55,154,.18)}
+.tv-process-map::before{content:"";position:absolute;left:10%;right:10%;top:48px;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 8px,transparent 8px 14px)}
+.tv-map-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.tv-map-dot{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--color-primary);box-shadow:0 0 0 6px rgba(255,211,43,.35)}
+.tv-map-dot svg{width:24px;height:24px}
+.tv-map-label{font-size:13.5px;font-weight:700;line-height:1.3}
+.tv-map-label small{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-primary-light);margin-bottom:2px}
+
+/* Hiện lần lượt 5 bước khi thanh tóm tắt cuộn tới lần đầu (class is-in do js/blocks.js gắn) */
+.tv-js .tv-process-map .tv-map-item{opacity:0;transform:translateY(18px) scale(.85);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1.2)}
+.tv-js .tv-process-map::before{transform:scaleX(0);transform-origin:left;transition:transform 1s ease .15s}
+.tv-js .tv-process-map.is-in .tv-map-item{opacity:1;transform:none}
+.tv-js .tv-process-map.is-in::before{transform:scaleX(1)}
+.tv-process-map .tv-map-item:nth-child(2){transition-delay:.12s}
+.tv-process-map .tv-map-item:nth-child(3){transition-delay:.24s}
+.tv-process-map .tv-map-item:nth-child(4){transition-delay:.36s}
+.tv-process-map .tv-map-item:nth-child(5){transition-delay:.48s}
+
+/* Timeline */
+.post-detail-body ol.tv-process{margin:0;padding:0;list-style:none;counter-reset:none}
+.post-detail-body ol.tv-process>li.tv-step{display:grid;grid-template-columns:64px 1fr;gap:0 18px;margin:0;padding:0}
+.post-detail-body ol.tv-process>li.tv-step::before{content:none}
+.tv-step-rail{position:relative;display:flex;justify-content:center}
+.tv-step-rail::after{content:"";position:absolute;top:58px;bottom:-6px;width:3px;border-radius:2px;background:linear-gradient(180deg,var(--color-primary-light),rgba(255,211,43,.15))}
+.tv-step:last-child .tv-step-rail::after{content:none}
+.tv-step-num{position:relative;z-index:1;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--color-primary);color:#fff;font-weight:800;font-size:18px;box-shadow:0 8px 18px rgba(7,69,190,.28);transform:rotate(-4deg);transition:background-color .3s ease,color .3s ease,box-shadow .3s ease}
+/* Rê chuột vào nội dung bước -> đổi màu nền và màu số cho nhau (viền xanh để ô trắng không chìm vào nền trang) */
+.tv-step:hover .tv-step-num{background:#fff;color:var(--color-primary);box-shadow:inset 0 0 0 2px var(--color-primary),0 8px 18px rgba(7,69,190,.18)}
+.tv-step-card{position:relative;margin-bottom:20px;padding:20px 22px;border-radius:18px;background:#fff;border:1px solid rgba(7,69,190,.14);box-shadow:0 6px 18px rgba(6,55,154,.06);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.tv-step-card::before{content:"";position:absolute;left:-9px;top:18px;width:16px;height:16px;background:#fff;border-left:1px solid rgba(7,69,190,.14);border-bottom:1px solid rgba(7,69,190,.14);transform:rotate(45deg)}
+.tv-step-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,55,154,.12);border-color:rgba(7,69,190,.35)}
+.tv-step-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.tv-step-icon{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--color-cream);color:var(--color-primary)}
+.tv-step-icon svg{width:24px;height:24px}
+.tv-step-kicker{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--color-primary-light)}
+.post-detail-body .tv-step-head h3{margin:2px 0 0;font-size:19px;line-height:1.3;color:var(--color-primary-dark)}
+.post-detail-body .tv-step-card p{margin:0;font-size:15.5px;line-height:1.75}
+.tv-step-out{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:5px 12px;border-radius:999px;background:rgba(255,211,43,.16);color:var(--color-primary-dark);font-size:13px;font-weight:700}
+.tv-step-out svg{width:15px;height:15px}
+.tv-step:last-child .tv-step-card{margin-bottom:0}
+.post-detail-body .tv-process-note{display:flex;align-items:center;gap:12px;margin:30px 0 0;padding:14px 18px;border-radius:14px;background:var(--color-cream);border:1px dashed rgba(7,69,190,.3);font-size:15px;line-height:1.55;color:var(--color-text)}
+.tv-process-note svg{flex:none;width:26px;height:26px;color:var(--color-primary)}
+
+/* Hiện dần từng bước khi cuộn tới (trình duyệt hỗ trợ scroll-driven animation) */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .tv-step-card{animation:tv-rise linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+    @keyframes tv-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  }
+}
+
+@media (max-width:640px){
+  .tv-process-map{grid-template-columns:repeat(5,1fr);gap:4px;padding:16px 8px 14px}
+  .tv-process-map::before{top:38px}
+  .tv-map-dot{width:40px;height:40px;box-shadow:0 0 0 4px rgba(255,211,43,.35)}
+  .tv-map-dot svg{width:18px;height:18px}
+  .tv-map-label{font-size:11px}
+  .tv-map-label small{font-size:9.5px;letter-spacing:.06em}
+  .post-detail-body ol.tv-process>li.tv-step{grid-template-columns:40px 1fr;gap:0 12px}
+  .tv-step-num{width:38px;height:38px;border-radius:12px;font-size:15px}
+  .tv-step-rail::after{top:44px}
+  .tv-step-card{padding:16px}
+  .tv-step-card::before{top:12px}
+  .tv-step-head{gap:10px}
+  .tv-step-icon{width:40px;height:40px;border-radius:12px}
+  .post-detail-body .tv-step-head h3{font-size:17px}
+}
