@@ -5090,7 +5090,8 @@ main > section {
 
 .news-card {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  grid-template-columns: 300px minmax(0, 1fr);
+  align-items: center;
   background: #fff;
   border: 1px solid #e8ebf0;
   border-radius: 14px;
@@ -5104,17 +5105,16 @@ main > section {
 }
 
 .news-card-thumb {
-  position: relative;
   display: block;
-  min-height: 175px; /* = khung 16:10 của cột ảnh 280px; thẻ cao hơn thì ảnh kéo theo */
+  /* Giữ đúng tỉ lệ ảnh cover 16:9 - ảnh cover thường có chữ, cắt khung khác là mất chữ */
+  aspect-ratio: 16 / 9;
+  margin: 14px 0 14px 14px;
+  border-radius: 10px;
   background: #e9edf3;
   overflow: hidden;
 }
 
-/* Ảnh phủ kín chiều cao thẻ khi phần chữ cao hơn khung 16:10 */
 .news-card-thumb img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -5248,8 +5248,8 @@ main > section {
 
 .news-recent-thumb {
   flex-shrink: 0;
-  width: 72px;
-  height: 52px;
+  width: 96px;
+  height: 54px; /* 16:9 như ảnh cover, không cắt mất chữ */
   border-radius: 8px;
   overflow: hidden;
   background: #e9edf3;
@@ -5444,17 +5444,17 @@ main > section {
   }
 
   .news-card {
-    grid-template-columns: 40% minmax(0, 1fr);
+    grid-template-columns: 44% minmax(0, 1fr);
     border-radius: 12px;
   }
 
   .news-card-thumb {
-    aspect-ratio: auto;
-    min-height: 108px;
+    margin: 10px 0 10px 10px;
+    border-radius: 8px;
   }
 
   .news-card-body {
-    padding: 0.75rem 0.85rem;
+    padding: 0.6rem 0.75rem;
     gap: 0.35rem;
   }
 
